@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel="shortcut icon" href="soru.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="soru.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <meta charset="UTF-8">
     <title>Kadir Developer</title>
     <meta name="keywords" content="Kadir Developer, Web Geliştirme, Yazılım Geliştirme">
@@ -20,18 +23,64 @@
         margin-bottom: 30px;
       }
       p {
-        font-size: 24px;
+        font-size: 21px;
         line-height: 1.5;
         margin-bottom: 30px;
       }
       .emoji {
         font-size: 80px;
       }
+      .social-icon {
+        font-size: 24px;
+        color: #c36aff;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+      .instagram-icon {
+        margin-top: 20px;
+        color: #c36aff;
+      }
+      .countdown {
+        font-size: 24px;
+        margin-top: 30px;
+      }
+      .countdown-icon {
+        font-size: 24px;
+        margin-right: 10px;
+      }
     </style>
   </head>
   <body>
-    <div class="emoji">🛠️</div>
+    <h1><img src="soru.png" alt=""></h1>
     <h1>Bakımdayız ! </h1>
-    <p>Size Daha İyi Şeyler Sunmak İçin Çalışmaları Yapılıyor. Lütfen daha sonra tekrar deneyiniz.</p>
-  </body>
-</html>
+
+    <div class="countdown">
+      <i class="far fa-clock countdown-icon"></i>
+      <span class="countdown-text"></span>
+    </div>
+    
+    <a href="https://www.instagram.com/kadirdeveloper/" target="_blank"><i class="fab fa-instagram social-icon instagram-icon"></i></a>
+    <a href="mailto:hi@kadirdeveloper.me"><i class="far fa-envelope social-icon"></i></a>
+
+    <script>
+      const countdownText = document.querySelector('.countdown-text');
+      const countdownIcon = document.querySelector('.countdown-icon');
+
+      // 24 saatlik sayaç oluşturma
+      const countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000;
+      const x = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownText.innerHTML = `Bakım Bitmesine ${hours} saat, ${minutes} dakika ve ${seconds} saniye kaldı!`;
+
+    if (distance < 0) {
+      clearInterval(x);
+      countdown.innerHTML = 'Siteye döndük!';
+    }
+  }, 1000);
+</script>
